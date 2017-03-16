@@ -2,10 +2,6 @@ day1:
 
 
 
-
-
-
-
 --select employee_id,first_name from hr.employees;
 
 --select * from hr.employees where employee_id=130;
@@ -24,15 +20,6 @@ day1:
  --select distinct last_name from hr.employees;
  
  select * from hr.employees where employee_id between 100 and 150;
-
-
-
-
-
-
-
-
-
 
 
 
