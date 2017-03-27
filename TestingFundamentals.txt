@@ -1,0 +1,161 @@
+dev sit(system integration testing) uat(user acceptance testing) prod(Live)
+dev  qa1	qa2		prod
+
+Testing is a process- not a single activity
+
+Verification - Just to make sure product is built as per requirement, Verification is whitebox testing- 
+done by developers
+Validation - Make sure product is built as per requirement and also test as end user
+(w.r.to different user activities, performance, security, configuration, compatibility etc) ,
+It is blackbox testing, It is done by QA group.
+
+Whitebox Testing : Testing the functionality by knowing the design and code details, 
+In whitebox testing we write code to test the code.
+Generally develeopers do white box testing - unit testing.
+
+public int noOfSubjects(String courseName){
+
+if(courseName=="QA"){
+return 10;
+}else if(courseName=="UI"){
+return 15;
+}
+}
+
+@Test
+public void testNoOfSubjects(){
+  actual = noOfSubjects("QA");
+  expected = 10;
+  if(actual == expected){
+   log(working as exepected);
+  }else{
+   log(Test fail - results do not match);
+  }
+
+}
+
+
+Blackbox Testing :  Testing the functionality by not knowing the design and code details. 
+Done by Qa group.
+
+
+TestCases - Can be written in excel/word doc/Rally/JIRA/Wiki links
+
+
+What testcase consist of:
+Date, AuthorName, company,
+TestCaseId
+Description
+priority
+Precondition
+TestSteps
+TestData
+expected
+actual
+result
+
+
+Qa should do basic debugging before raising a defect:
+I would check browser dev tools(by right click and inspect or directly press F12) console, network tabs
+to figure out any client side logs in console, API issue in network tab.
+If I could not find the reason by dev tools I would further check server logs(by connecting to unix server machine).
+
+Once we do basic debugging we would atleast know whether the issue is in client side, API side, server side logic
+or in DataBase or with deployment.
+
+Retesting - Test the defect that is fixed to make sure if it is properly fixed.
+
+RegressionTesting- After a defect fix or enhancement we try to test already tested functionalities
+to make sure that new enhancement or defect fix did not break the existing things.
+
+SmokeTesting - Crtical functionality which when fails - you cannot proceed with any further testing
+FunctionaltyTesting - All scenarios as per the requirement.
+RegressionTesting - SuperSet of smoke test cases and subset of functionality test cases.
+
+dev sit uat prod
+
+unit testing
+
+IntegrationTesting:
+1.SystemIntegrationTesting
+2.ComponentIntegrationTesting
+
+we have 3 diff approaches:
+BigBang
+TopDown
+BottomUP
+
+SystemTesting
+UserAcceptanceTesting
+ProductionValidation/Testing
+
+In SIT and UAT - we will have 
+SmokeTesting
+RegressionTesting
+
+TDD- Test Driven Development
+login - 10 testcases - 10 unit test methods - tests are driving the develepment.
+BDD - Behaviour driven development
+Login
+Register
+Search
+AddToCart
+
+Some of popular behaviour driven development frameworks are Cucumber, Jasmine etc...
+
+SystemTesting:
+FunctionalTesting
+PerformanceTesting - concurrent users to application
+- what do we analyze in performance testing - 
+ResponseTime(time to get complete response), 
+Latency(time to get first byte of response), 
+Throughput(no of requests served per unit time)
+Always for good peformance - response time and latency should be less and throughput should be more.
+
+Load testing-
+Stress testing- try to find out breaking point for application
+Volume testing- testing with more volume data in database
+
+Usability
+- look and feel
+- fonta, colors, size of fonts, images
+- broken links 
+- scrolling
+- pagination
+- select, radio, navigations
+- responsive web design
+
+Configuration
+
+Compatibilty
+
+OS
+browsers
+versions
+TestDeviceMatrix
+
+SecurityTesting
+
+Localization
+
+Internationalisation
+
+
+MObileapplications:
+native- facebook 
+hybrid- gmail
+mobileweb applications- which u can open in mobile browser- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
