@@ -134,17 +134,239 @@ browsers
 versions
 TestDeviceMatrix
 
-SecurityTesting
+SecurityTesting :
 
-Localization
+Authentication
 
-Internationalisation
+Authorization- Role of user
+
+SecurityQuestions
+
+Captcha 
+
+DDOS attack
+
+SQL Injection:
+
+select * from Users where userid=''delete from user'' or '1=1' and pwd= ''
+
+CrossSiteScripting
+
+Malicious script
+
+
+Localization:
+
+Internationalisation:
+
+Accesibility:
+HTml alt 
+aria attributes in html
+ADA compliant
+
+Installation/Uninistallation
+
 
 
 MObileapplications:
 native- facebook 
 hybrid- gmail
 mobileweb applications- which u can open in mobile browser- 
+
+
+Blackbox Testing techniques:
+Equivalence Partitioning : test data based on valid and invalid partitioning
+   1-10
+   Invalid - <1 and >10
+   valid - 1-10
+   
+   0,12, 2,3
+
+Boundary Value Anaysis :
+	1-10
+   Invalid - <1 and >10
+   valid - 1-10
+   
+   at the boundary
+   just below the boundary
+   just above the boundary
+   
+   1, 10, 11,9, 2, 0
+
+DecisionTables
+StateBasedTesting
+ErrorGuessing
+ExploratoryTesting
+
+
+
+Whitebox Testing techniques:
+
+if( n%3== 0 && n%5==0){
+ div by 3 and 5
+}else if(n%3== 0){
+div by 3
+}else if(n%5== 0){
+div by 5;
+}else{
+Not div  by 3 or 5
+}
+
+4 statements
+3 conditions
+4 decsions
+
+15
+20
+18
+7
+
+decisionCoverage
+StatementCoverage
+ConditionalCoverage
+
+void procedure(int a, int b, int x)
+
+{
+
+If ((a>1) && (b==0))
+
+{
+
+x=x/a;
+
+}
+
+If ((a==2 || x>1))
+
+{ x=x+1; }
+
+}
+
+statements- 2
+decisions- 2
+conditions- 4
+
+a=2 b=0 x=3
+a=2 b=1 x=3
+a=0 b=0 x=2
+
+
+
+int[] ids = new int[100];
+if(some condition){
+ids = new int[100];
+  ids
+
+}
+
+Why Automate:
+Efficient usage of time and resources
+Regression test cases
+DataDrivenTesting - same testcase with multple sets of data
+tests which cannot be tested manually -broken links(500 links), test attributes in html
+
+when not to automate:
+when application look and feel is going to completely change in mere future
+when u have tight deadlines- we cannot automate
+features which need human intervention- could be reading an otp for transaction processing, captcha images
+look and feel- usabilty- audio, video etc..
+
+Test Automation framework:
+
+Building a project structure for easy maintenance and to avoid code redundancy.
+
+avoid hard coded data in code
+data driven testing
+assertions(compare actual and expected) - using unti testing fws
+logs
+reports
+combine testcases - test suites
+execute them using build frameworks- like maven
+
+
+TestStrategy: By ProjectManager/QAManager and it does not change frequently
+Scope
+Objective
+Environment
+Resources
+
+TypesOfTesting:
+UnitTesting
+FunctionalTesting
+UsabilityTesting
+ConfigurationTesting
+PerformanceTesting
+SecurityTesting
+AccesbiltyTesting
+
+
+
+
+
+TestPlan: By TeamLead or QA Lead 
+
+TypesOfTesting:
+UnitTesting:
+Entry criteria - dev completes coding for given functionality
+exit criteria - all the unit test cases are success
+
+FunctionalTesting:
+Entry criteria - unit testing is completed 
+exit criteria - all the functionality as per requirement and all high/medium are fixed.
+
+IntegrationTesting:
+Entry criteria -  
+exit criteria - all the integration test cases are completed and all high/medium are fixed.
+
+SystemTesting
+
+UsabilityTesting:
+Entry criteria
+exit criteria
+
+ConfigurationTesting
+PerformanceTesting
+SecurityTesting
+AccesbiltyTesting
+
+resources- timelines
+release- features
+risks
+
+Defect/Bug:
+id
+decription
+replication steps
+actual
+expected
+summary/Notes
+Priority
+severity
+logs/screenshots
+versions
+release
+expected date
+open/assigned/in progress/verified/closed
+
+Difference between priority and severity?
+
+priority - business
+severity - how it effects product
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
