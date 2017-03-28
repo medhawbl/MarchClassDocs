@@ -300,7 +300,8 @@ PerformanceTesting
 SecurityTesting
 AccesbiltyTesting
 
-
+SAMPLE:
+http://sce.uhcl.edu/helm/RUP_course_example/courseregistrationproject/artifacts/test/plans/test_plan_arch.htm 
 
 
 
