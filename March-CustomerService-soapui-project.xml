@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="e944223c-bed8-4a58-a831-6e9d5e6c30c7" activeEnvironment="Default" name="March-CustomerService" resourceRoot="" soapui-version="5.3.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="303953f0-a0d8-47c3-abad-ca55a2175cc7" wsaVersion="NONE" name="CRMServicePTBinding" type="wsdl" bindingName="{http://predic8.com/wsdl/crm/CRMService/1/}CRMServicePTBinding" soapVersion="1_1" anonymous="optional" definition="http://www.predic8.com:8080/crm/CustomerService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://www.predic8.com:8080/crm/CustomerService?wsdl"><con:part><con:url>http://www.predic8.com:8080/crm/CustomerService?wsdl</con:url><con:content><![CDATA[<!--Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.1-b01-.-->
+<wsdl:definitions targetNamespace="http://predic8.com/wsdl/crm/CRMService/1/" name="crm" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://predic8.com/wsdl/crm/CRMService/1/" xmlns:ns="http://predic8.com/material/1/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://predic8.com/material/1/" xmlns:ns2="http://predic8.com/common/1/">
+  <types>
+    <xsd:schema targetNamespace="http://predic8.com/wsdl/crm/CRMService/1/" xmlns:crm="http://predic8.com/crm/1/">
+      <xsd:import schemaLocation="http://www.predic8.com:8080/crm/CustomerService?xsd=2" namespace="http://predic8.com/crm/1/"/>
+      <xsd:import schemaLocation="http://www.predic8.com:8080/crm/CustomerService?xsd=1" namespace="http://predic8.com/common/1/"/>
+      <xsd:element name="createResponse">
+        <xsd:complexType>
+          <xsd:sequence/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="create" type="tns:CreateType"/>
+      <xsd:complexType name="CreateType">
+        <xsd:sequence>
+          <xsd:element name="customer" type="crm:CustomerType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="get" type="tns:GetType"/>
+      <xsd:complexType name="GetType">
+        <xsd:sequence>
+          <xsd:element name="id" type="ns2:IdentifierType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getResponse" type="tns:GetResponseType"/>
+      <xsd:complexType name="GetResponseType">
+        <xsd:sequence>
+          <xsd:element name="customer" type="crm:CustomerType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getAll" type="tns:GetAllType"/>
+      <xsd:complexType name="GetAllType">
+        <xsd:sequence></xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getAllResponse" type="tns:GetAllResponseType"/>
+      <xsd:complexType name="GetAllResponseType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="customer" maxOccurs="unbounded" type="crm:CustomerType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="createRequest">
+    <part name="parameters" element="tns:create"/>
+  </message>
+  <message name="createResponse">
+    <part name="parameters" element="tns:createResponse"/>
+  </message>
+  <message name="getRequest">
+    <part name="parameters" element="tns:get"/>
+  </message>
+  <message name="getResponse">
+    <part name="parameters" element="tns:getResponse"/>
+  </message>
+  <message name="getAllRequest">
+    <part name="parameters" element="tns:getAll"/>
+  </message>
+  <message name="getAllResponse">
+    <part name="parameters" element="tns:getAllResponse"/>
+  </message>
+  <portType name="CRMServicePT">
+    <operation name="create">
+      <input name="input1" message="tns:createRequest"/>
+      <output name="output1" message="tns:createResponse"/>
+    </operation>
+    <operation name="get">
+      <input name="input2" message="tns:getRequest"/>
+      <output name="output2" message="tns:getResponse"/>
+    </operation>
+    <operation name="getAll">
+      <input name="input3" message="tns:getAllRequest"/>
+      <output name="output3" message="tns:getAllResponse"/>
+    </operation>
+  </portType>
+  <wsdl:binding name="CRMServicePTBinding" type="tns:CRMServicePT">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="create">
+      <soap:operation soapAction="create_action"/>
+      <wsdl:input name="input1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="output1">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get">
+      <soap:operation soapAction="get_action"/>
+      <wsdl:input name="input2">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="output2">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAll">
+      <soap:operation soapAction="getAll_action"/>
+      <wsdl:input name="input3">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="output3">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerService">
+    <wsdl:port name="CRMServicePTPort" binding="tns:CRMServicePTBinding">
+      <soap:address location="http://www.predic8.com:8080/crm/CustomerService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://www.predic8.com:8080/crm/CustomerService?xsd=2</con:url><con:content><![CDATA[<!--Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.1-b01-.-->
+<xsd:schema targetNamespace="http://predic8.com/crm/1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://predic8.com/crm/1/" xmlns:co="http://predic8.com/common/1/">
+  <xsd:import schemaLocation="http://www.predic8.com:8080/crm/CustomerService?xsd=1" namespace="http://predic8.com/common/1/"/>
+  <xsd:complexType name="CompanyAddressType">
+    <xsd:complexContent>
+      <xsd:extension base="co:AddressType">
+        <xsd:sequence>
+          <xsd:element name="companyName" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CustomerType">
+    <xsd:sequence>
+      <xsd:element name="person" type="co:PersonType"/>
+      <xsd:element name="address" type="tns:CompanyAddressType"/>
+      <xsd:element name="id" type="co:IdentifierType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://www.predic8.com:8080/crm/CustomerService?xsd=1</con:url><con:content><![CDATA[<!--Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.1-b01-.-->
+<xsd:schema targetNamespace="http://predic8.com/common/1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://predic8.com/common/1/">
+  <xsd:annotation>
+    <xsd:documentation>Common datatypes that are used in different systems.</xsd:documentation>
+  </xsd:annotation>
+  <xsd:include schemaLocation="http://www.predic8.com:8080/crm/CustomerService?xsd=3"/>
+  <xsd:simpleType name="IdentifierType">
+    <xsd:annotation>
+      <xsd:documentation>Identifier for business objects.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[A-Z]{2}-\d{5}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="PersonType">
+    <xsd:sequence>
+      <xsd:element name="id" type="tns:IdentifierType"/>
+      <xsd:element name="firstName" type="xsd:string"/>
+      <xsd:element name="lastName" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="address" type="tns:AddressType"/>
+      <xsd:element name="age" type="xsd:integer"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AddressType">
+    <xsd:sequence>
+      <xsd:element name="street" type="xsd:string"/>
+      <xsd:element name="city" type="xsd:string"/>
+      <xsd:element name="zipCode" type="xsd:string"/>
+      <xsd:element name="country" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://www.predic8.com:8080/crm/CustomerService?xsd=3</con:url><con:content><![CDATA[<!--Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.1-b01-.-->
+<xsd:schema targetNamespace="http://predic8.com/common/1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://predic8.com/common/1/">
+  <xsd:complexType name="MoneyType">
+    <xsd:sequence>
+      <xsd:element name="amount" type="xsd:decimal"/>
+      <xsd:element name="currency" type="tns:CurrencyType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="CurrencyType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="USD"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://www.predic8.com:8080/crm/CustomerService</con:endpoint></con:endpoints><con:operation id="b0e3e400-d629-4668-bd26-653447166e27" isOneWay="false" action="create_action" name="create" bindingOperationName="create" type="Request-Response" outputName="output1" inputName="input1" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="54187449-5b28-4a59-8bb5-cf7bc8fb739b" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.predic8.com:8080/crm/CustomerService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://predic8.com/wsdl/crm/CRMService/1/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:create>\r
+         <customer>\r
+            <person>\r
+               <id>310</id>\r
+               <firstName>Medha</firstName>\r
+               <lastName>K</lastName>\r
+               <!--Optional:-->\r
+               <address>\r
+                  <street>39420</street>\r
+                  <city>Fremont</city>\r
+                  <zipCode>94536</zipCode>\r
+                  <country>CA</country>\r
+               </address>\r
+               <age>?</age>\r
+            </person>\r
+            <address>\r
+               <street>?</street>\r
+               <city>?</city>\r
+               <zipCode>?</zipCode>\r
+               <country>?</country>\r
+               <companyName>?</companyName>\r
+            </address>\r
+            <id>310</id>\r
+         </customer>\r
+      </ns:create>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="create_action"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="b646e0b3-a324-4611-87ba-42222816a8e8" isOneWay="false" action="get_action" name="get" bindingOperationName="get" type="Request-Response" outputName="output2" inputName="input2" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="85fc3861-3993-4a60-bb79-62952733f86e" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.predic8.com:8080/crm/CustomerService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://predic8.com/wsdl/crm/CRMService/1/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:get>\r
+         <id>413</id>\r
+      </ns:get>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="get_action"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="435fea59-541d-4b30-b65f-6193ee5e9164" isOneWay="false" action="getAll_action" name="getAll" bindingOperationName="getAll" type="Request-Response" outputName="output3" inputName="input3" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="db9db07a-8347-45fd-8cca-2956b8a59265" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.predic8.com:8080/crm/CustomerService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://predic8.com/wsdl/crm/CRMService/1/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:getAll/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getAll_action"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="6776e3d0-0080-4b88-ad86-0649d23f2bce" name="TestSuite1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="173dec63-1c12-47ee-8999-b08c1e6093f1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase1" searchProperties="true"><con:settings/><con:testStep type="properties" name="Properties" id="3c116518-6df6-4b71-a752-5e740e8de56e"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:source>C:/Users/WBL/Desktop/inputData.properties</con:source><con:properties><con:property><con:name>id</con:name><con:value>413</con:value></con:property><con:property><con:name>name</con:name><con:value>Abid</con:value></con:property><con:property><con:name>City</con:name><con:value>Dublin</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="jdbc" name="JDBC Request" id="f53ca7bd-437b-4bea-829f-dac26835901f" disabled="true"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties/></con:config></con:testStep><con:testStep type="transfer" name="PropertyTransfer" id="4af33173-ae7e-49a8-869c-668727d49ce4"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>id</con:name><con:sourceType>id</con:sourceType><con:sourceStep>Properties</con:sourceStep><con:targetType>Request</con:targetType><con:targetStep>createUser</con:targetStep><con:targetPath>declare namespace ns="http://predic8.com/wsdl/crm/CRMService/1/"
+//ns:create/customer/person/id</con:targetPath><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>name</con:name><con:sourceType>name</con:sourceType><con:sourceStep>Properties</con:sourceStep><con:targetType>Request</con:targetType><con:targetStep>createUser</con:targetStep><con:targetPath>declare namespace ns="http://predic8.com/wsdl/crm/CRMService/1/"
+//ns:create/customer/person/firstName</con:targetPath><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>city</con:name><con:sourceType>City</con:sourceType><con:sourceStep>Properties</con:sourceStep><con:targetType>Request</con:targetType><con:targetStep>createUser</con:targetStep><con:targetPath>declare namespace ns="http://predic8.com/wsdl/crm/CRMService/1/"
+//ns:create/customer/person/address/city</con:targetPath><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>id2</con:name><con:sourceType>id</con:sourceType><con:sourceStep>Properties</con:sourceStep><con:targetType>Request</con:targetType><con:targetStep>createUser</con:targetStep><con:targetPath>declare namespace ns="http://predic8.com/wsdl/crm/CRMService/1/"
+//ns:create/customer/id</con:targetPath><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" id="b152354f-f383-43ae-a721-e2bf3eefc0d2" name="createUser"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CRMServicePTBinding</con:interface><con:operation>create</con:operation><con:request name="createUser" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="706e558f-a5b7-4dca-9c64-a8bdec8862d1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.predic8.com:8080/crm/CustomerService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://predic8.com/wsdl/crm/CRMService/1/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:create>
+         <customer>
+            <person>
+            <token>${#TestCase#token}</token>
+               <id>413</id>
+               <firstName>Abid</firstName>
+               <lastName>K</lastName>
+               <!--Optional:-->
+               <address>
+                  <street>39420</street>
+                  <city>Dublin</city>
+                  <zipCode>94536</zipCode>
+                  <country>CA</country>
+               </address>
+               <age>?</age>
+            </person>
+            <address>
+               <street>?</street>
+               <city>?</city>
+               <zipCode>?</zipCode>
+               <country>?</country>
+               <companyName>?</companyName>
+            </address>
+            <id>413</id>
+         </customer>
+      </ns:create>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="94b911a2-c7cc-47cd-b23a-eba0607e77c6" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="create_action"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="DependencyDataTransfer" id="236698f2-c201-4930-b8e8-86e7355bd045"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>id</con:name><con:sourceType>Request</con:sourceType><con:sourceStep>createUser</con:sourceStep><con:sourcePath>declare namespace ns="http://predic8.com/wsdl/crm/CRMService/1/"
+//ns:create/customer/person/id</con:sourcePath><con:targetType>Request</con:targetType><con:targetStep>getUser</con:targetStep><con:targetPath>declare namespace ns="http://predic8.com/wsdl/crm/CRMService/1/"
+//ns:get/id</con:targetPath><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" id="10220664-3bad-452c-bd0d-89743393ee75" name="getUser"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CRMServicePTBinding</con:interface><con:operation>get</con:operation><con:request name="getUser" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="04095d8f-410f-4149-8a08-01e957850fa2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.predic8.com:8080/crm/CustomerService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://predic8.com/wsdl/crm/CRMService/1/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:get>
+         <id>413</id>
+      </ns:get>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="ff6aa08b-b4e7-4079-a9e7-9951080244d8" name="SOAP Response"/><con:assertion type="Invalid HTTP Status Codes" id="52f68196-7f2c-4920-b257-5f621aa11489" name="Invalid HTTP Status Codes"><con:configuration><codes>400,500</codes></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="a3fc03cc-f48d-46d4-a7bd-193cd18a7c95" name="Valid HTTP Status Codes"><con:configuration><codes>200,201</codes></con:configuration></con:assertion><con:assertion type="Schema Compliance" id="30bfe1ac-b837-4511-a41e-69e7600d5a4f" name="Schema Compliance" disabled="true"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="Simple Contains" id="717cb20b-e305-4b2c-8b5f-e5b793f6abf1" name="valuePresence"><con:configuration><token>Dublin</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="554d210a-fe85-4a41-8410-f9f31e4dddff" name="Not Contains"><con:configuration><token>orderid</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="7cba6140-f4b0-4307-b16f-c4324589efe8" name="elementPresence"><con:configuration><token>firstName</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="XPath Match" id="84e7d6b0-3b97-4ae2-8d64-8840c3c1e6d0" name="XPath Match"><con:configuration><path>declare namespace ns2='http://predic8.com/wsdl/crm/CRMService/1/';
+declare namespace S='http://schemas.xmlsoap.org/soap/envelope/';
+//ns2:getResponse/customer/person/id</path><content>413</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9c932fad-b55a-486e-aecd-23385b3232c4" name="XPathAssertion2"><con:configuration><path>declare namespace ns2='http://predic8.com/wsdl/crm/CRMService/1/';
+declare namespace S='http://schemas.xmlsoap.org/soap/envelope/';
+exists(//ns2:getResponse/customer/person)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="get_action"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="goto" name="ConditionalGoto" id="9441caf2-40e5-4308-a379-3ae35faff5a4"><con:settings/><con:config xsi:type="con:GotoStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:condition><con:name>Condition1</con:name><con:type>XPATH</con:type><con:expression>declare namespace ns2="http://predic8.com/wsdl/crm/CRMService/1/"
+exists(//ns2:orderid)
+</con:expression><con:targetStep>ManualTestStep</con:targetStep></con:condition></con:config></con:testStep><con:testStep type="manualTestStep" name="ManualTestStep" id="de13795f-6bd2-4213-9d4b-fc3ea8e70c84"><con:description>Make sure link is clicked  which is sent through email</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>successful registration</con:expectedResult></con:config></con:testStep><con:testStep type="groovy" name="GroovyScript" id="cb28fec8-ebde-421f-a9cd-c4d161d24ee7"><con:settings/><con:config><script>def a=10
+
+def b=10
+
+log.info("[$a]")
+
+def c= a + b;
+log.info("sum:[$c]")
+
+if(a&lt;0){
+	log.info("num is negative");
+}else{
+	log.info("num is positive");
+}
+</script></con:config></con:testStep><con:testStep type="request" id="800005b1-d32b-412f-bf85-fc96ddbfc78b" name="getAll"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CRMServicePTBinding</con:interface><con:operation>getAll</con:operation><con:request name="getAll" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="5c1b6875-1ef6-41ee-a20d-9a18abac6fd5"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.predic8.com:8080/crm/CustomerService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://predic8.com/wsdl/crm/CRMService/1/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:getAll/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="93be2336-1d4c-4796-aff7-91eeaf15a289" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getAll_action"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script- Get Response Data" id="ed32fa77-314d-44c9-80ac-8f3032342145"><con:settings/><con:config><script>log.info(testSuite.name);
+
+def util = new com.eviware.soapui.support.GroovyUtils(context);
+
+def resp = util.getXmlHolder("getAll#Response");
+
+resp.namespaces["ns2"]="http://predic8.com/wsdl/crm/CRMService/1/";
+
+for(cust in resp.getNodeValues("//ns2:getAllResponse/customer/person/firstName")){
+	log.info("cust is : [$cust]");
+}
+
+testRunner.runTestStepByName("getUser");
+</script></con:config></con:testStep><con:properties><con:property><con:name>env</con:name><con:value>qa</con:value></con:property><con:property><con:name>token</con:name><con:value>8721632783721989</con:value></con:property></con:properties></con:testCase><con:testCase id="ceb8b449-964f-4ccf-9f56-6e43de0f4e8e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetAllUsers" searchProperties="true"><con:settings/><con:testStep type="request" id="b1e3655b-5e0a-4d4b-b4e8-3a47703949cc" name="getAllUsers"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CRMServicePTBinding</con:interface><con:operation>getAll</con:operation><con:request name="getAllUsers" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="4aeff249-55a0-4f3d-8c32-d6ac4bb623f9"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.predic8.com:8080/crm/CustomerService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://predic8.com/wsdl/crm/CRMService/1/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:getAll/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="be562e42-770a-4be3-afb3-3d05c1e5997d" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getAll_action"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
